@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Messages</title>
+  </head>
+  <body>
+  	<div class="container">
+      <div class="row">
+      	<div class="col-md-3 offset-md-4">
+		  <% @messages.each do |elem| %>
+			  <div>
+				  <a href="message/<%= elem["id"] %>"><%= elem["text"] %></a> <a style="color:red" href="message/delete/<%= elem["id"] %>">X</a>
+			  </div>
+
+		  <% end %>
+
+		  <form action="/messages" method="POST">
+		  	<div class="form-group">
+			  <input name="text" class="form-control"/>
+			</div>
+			<button type="submit" class="btn btn-primary">Send</button>
+		  </form>
+	   </div>
+	  </div>
+    </div>
+
+  </body>
+</html>
